@@ -17,7 +17,9 @@ DJANGO_APPS = [
 ]
 
 # 추가한 앱
-CUSTOM_APPS = []
+CUSTOM_APPS = [
+    'users',
+]
 
 # 써드 파티 앱?
 THIRD_PARTY_APPS = [
