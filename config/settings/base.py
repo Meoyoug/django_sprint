@@ -124,11 +124,15 @@ REST_FRAMEWORK = {
 
 AUTH_USER_MODEL = 'users.User'
 
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = 'api/v1/users/login/'
+LOGOUT_REDIRECT_URL = 'api/v1/users/logout/'
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
     "UPDATE_LAST_LOGIN": True,
 }
+
+KAKAO_CLIENT_ID = os.environ.get('KAKAO_CLIENT_ID')
+KAKAO_REDIRECT_URI = os.environ.get('KAKAO_REDIRECT_URI', 'http://127.0.0.1:8000/api/v1/users/kakao/callback/')
+KAKAO_CLIENT_SECRET = os.environ.get('KAKAO_CLIENT_SECRET')

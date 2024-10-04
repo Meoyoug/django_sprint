@@ -1,6 +1,5 @@
 from django.urls import path
-from rest_framework_simplejwt.serializers import TokenVerifySerializer, TokenRefreshSerializer, TokenObtainPairSerializer
-from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView, TokenVerifyView
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 from users import views
 
@@ -13,4 +12,6 @@ urlpatterns = [
     path('jwt/login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     # 유저가 보낸 요청에서 헤더에 담긴 Refresh Token을 검증하여 Access Token을 재생성하여 응답으로 반환
     path('jwt/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('kakao/login/', views.KakaoLoginView.as_view(), name='kakao-login'),
+    path('kakao/callback/', views.KakaoCallbackView.as_view(), name='kakao-callback'),
 ]
